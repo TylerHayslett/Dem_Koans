@@ -41,7 +41,7 @@ class AboutMethods < Neo::Koan
     exception = assert_raise(ArgumentError) do
       my_global_method(1,2,3)
     end
-    assert_match(/wrong number of arguments [(]0 for 2[)]/, exception.message)
+    assert_match(/wrong number of arguments [(]3 for 2[)]/, exception.message)
   end
 	#The parenthesese must be in brackests because they are 
 	#pattern "control characters"
@@ -55,8 +55,8 @@ class AboutMethods < Neo::Koan
   end
 
   def test_calling_with_default_values
-    assert_equal [1, __], method_with_defaults(1)
-    assert_equal [1, __], method_with_defaults(1, 2)
+    assert_equal [1, :default_value], method_with_defaults(1)
+    assert_equal [1, 2], method_with_defaults(1, 2)
   end
 
   # ------------------------------------------------------------------
